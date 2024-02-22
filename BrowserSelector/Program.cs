@@ -28,6 +28,15 @@ namespace BrowserSelector
 				return;
 			}
 
+            if (RegHelper.GetSettingBool("Debug"))
+            {//Show message box with command line arguments
+                //var s = string.Join("\n", args);
+                var commandLine = Environment.CommandLine;
+                MessageBox.Show(commandLine, "Command line arguments", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //Find actual command line arguments
+                
+            }
+
 			foreach (var s in args)
             {
                 var arg = s.Trim();
@@ -370,6 +379,12 @@ namespace BrowserSelector
                     {
                         loc = loc.Replace("{url}", _url);
                         _url = "";
+                    }
+
+                    //Idiot proofing: if URL is not encoded, we need to encode it
+                    if (!string.IsNullOrEmpty(_url) && (!_url.Contains("%") || _url.Contains(" ")))
+                    {
+                        _url = "\"" + Uri.EscapeUriString(_url) + "\"";
                     }
 
                     Process p;

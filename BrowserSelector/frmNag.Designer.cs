@@ -35,6 +35,7 @@ namespace DanTup.BrowserSelector
             this.cmdClose = new System.Windows.Forms.Button();
             this.cmdUnreg = new System.Windows.Forms.Button();
             this.cmdCheckSettings = new System.Windows.Forms.Button();
+            this.chDebug = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -50,7 +51,7 @@ namespace DanTup.BrowserSelector
             // 
             // cmdRegBrowser
             // 
-            this.cmdRegBrowser.Location = new System.Drawing.Point(12, 261);
+            this.cmdRegBrowser.Location = new System.Drawing.Point(12, 284);
             this.cmdRegBrowser.Name = "cmdRegBrowser";
             this.cmdRegBrowser.Size = new System.Drawing.Size(156, 31);
             this.cmdRegBrowser.TabIndex = 1;
@@ -60,7 +61,7 @@ namespace DanTup.BrowserSelector
             // 
             // cmdClose
             // 
-            this.cmdClose.Location = new System.Drawing.Point(336, 298);
+            this.cmdClose.Location = new System.Drawing.Point(336, 321);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(156, 31);
             this.cmdClose.TabIndex = 0;
@@ -70,7 +71,7 @@ namespace DanTup.BrowserSelector
             // 
             // cmdUnreg
             // 
-            this.cmdUnreg.Location = new System.Drawing.Point(12, 298);
+            this.cmdUnreg.Location = new System.Drawing.Point(12, 321);
             this.cmdUnreg.Name = "cmdUnreg";
             this.cmdUnreg.Size = new System.Drawing.Size(156, 31);
             this.cmdUnreg.TabIndex = 2;
@@ -80,7 +81,7 @@ namespace DanTup.BrowserSelector
             // 
             // cmdCheckSettings
             // 
-            this.cmdCheckSettings.Location = new System.Drawing.Point(174, 261);
+            this.cmdCheckSettings.Location = new System.Drawing.Point(174, 284);
             this.cmdCheckSettings.Name = "cmdCheckSettings";
             this.cmdCheckSettings.Size = new System.Drawing.Size(156, 31);
             this.cmdCheckSettings.TabIndex = 3;
@@ -88,11 +89,23 @@ namespace DanTup.BrowserSelector
             this.cmdCheckSettings.UseVisualStyleBackColor = true;
             this.cmdCheckSettings.Click += new System.EventHandler(this.cmdCheckSettings_Click);
             // 
+            // chDebug
+            // 
+            this.chDebug.AutoSize = true;
+            this.chDebug.Location = new System.Drawing.Point(12, 261);
+            this.chDebug.Name = "chDebug";
+            this.chDebug.Size = new System.Drawing.Size(93, 17);
+            this.chDebug.TabIndex = 4;
+            this.chDebug.Text = "DEBUG mode";
+            this.chDebug.UseVisualStyleBackColor = true;
+            this.chDebug.CheckedChanged += new System.EventHandler(this.chDebug_CheckedChanged);
+            // 
             // frmNag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 334);
+            this.ClientSize = new System.Drawing.Size(504, 363);
+            this.Controls.Add(this.chDebug);
             this.Controls.Add(this.cmdCheckSettings);
             this.Controls.Add(this.cmdUnreg);
             this.Controls.Add(this.cmdClose);
@@ -105,6 +118,7 @@ namespace DanTup.BrowserSelector
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Browser Selector";
+            this.Load += new System.EventHandler(this.frmNag_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,5 +131,6 @@ namespace DanTup.BrowserSelector
         private System.Windows.Forms.Button cmdClose;
         private System.Windows.Forms.Button cmdUnreg;
         private System.Windows.Forms.Button cmdCheckSettings;
+        private System.Windows.Forms.CheckBox chDebug;
     }
 }

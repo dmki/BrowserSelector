@@ -15,6 +15,7 @@ namespace DanTup.BrowserSelector
 {
     public partial class frmNag : Form
     {
+        private bool _loaded = false;
         public frmNag()
         {
             InitializeComponent();
@@ -126,6 +127,19 @@ namespace DanTup.BrowserSelector
                 }
             }
 
+        }
+
+        private void frmNag_Load(object sender, EventArgs e)
+        {
+            chDebug.Checked = RegHelper.GetSettingBool("Debug");
+            if (chDebug.Checked) MessageBox.Show("Debug mode is enabled. This will cause BrowserSelector to display message box with command line parameters before performing an action.", "Debug mode enabled", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            _loaded = true;
+        }
+
+        private void chDebug_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!_loaded) return;
+            RegHelper.SaveSetting("Debug", chDebug.Checked);
         }
     }
 }
